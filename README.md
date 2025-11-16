@@ -1,4 +1,4 @@
-# S.MAROK – Luxury Fashion Website  
+# Luxury Fashion Website  
 A modern, elegant, and fully responsive fashion website for the luxury brand **S.MAROK**.  
 Built using **HTML, Tailwind CSS, and JavaScript** with smooth animations, preloader, product gallery, and modal-based contact system.
 
