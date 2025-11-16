@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S.Markok - Luxury & Custom Apparel</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F8F8;
+            color: #1A1A1A;
+        }
+
+        .text-accent {
+            color: #C6A78C;
+        }
+
+        .bg-accent {
+            background-color: #C6A78C;
+        }
+
+        .hover\:bg-accent-dark:hover {
+            background-color: #A38C75;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-thumb { background: #D4D4D4; border-radius: 10px; }
+        ::-webkit-scrollbar-track { background: #F8F8F8; }
+
+        /* Product Hover */
+        .product-card {
+            transition: 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+
+        /* PRELOADER */
+        #preloader {
+            position: fixed;
+            inset: 0;
+            background: #0d0d0d;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999999;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+        .loader-box { text-align: center; }
+        .loader-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: 4px;
+            color: white;
+        }
+        .loader-title .text-accent { color: #C6A78C !important; }
+        .loader-spinner {
+            width: 55px;
+            height: 55px;
+            border: 4px solid #C6A78C;
+            border-top-color: transparent;
+            border-radius: 50%;
+            margin: 20px auto 0;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .hide-preloader {
+            opacity: 0;
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+<!-- PRELOADER -->
+<div id="preloader">
+    <div class="loader-box">
+        <h1 class="loader-title">S.<span class="text-accent">MAROK</span></h1>
+        <div class="loader-spinner"></div>
+    </div>
+</div>
+
+<!-- CONTACT MODAL -->
+<div id="contact-modal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-70 flex items-center justify-center p-4" onclick="closeModal(event)">
+    <div class="bg-white rounded-xl shadow-2xl w-full max-w-md p-8 relative" onclick="event.stopPropagation()">
+        <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-800" onclick="closeModal()">
+            <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+
+        <h2 class="text-3xl font-semibold mb-4 text-gray-900">Book Your Appointment</h2>
+        <p class="text-gray-600 mb-8">Choose your preferred contact method.</p>
+
+        <div class="space-y-4">
+            <a href="https://wa.me/+96176428589?text=Hello%20S.Marsok%2C%20I%20want%20to%20inquire."
+               target="_blank"
+               class="flex items-center justify-center w-full py-4 px-6 bg-green-500 text-white rounded-lg hover:bg-green-600">
+                <i data-lucide="whatsapp" class="w-5 h-5 mr-3"></i> WhatsApp Chat
+            </a>
+
+            <a href="https://www.instagram.com/officialsmarok/"
+               target="_blank"
+               class="flex items-center justify-center w-full py-4 px-6 bg-pink-600 text-white rounded-lg hover:bg-pink-700">
+                <i data-lucide="instagram" class="w-5 h-5 mr-3"></i> Instagram DM
+            </a>
+        </div>
+
+        <p class="text-xs text-gray-500 text-center mt-6">We look forward to assisting you.</p>
+    </div>
+</div>
+
+<!-- HEADER -->
+<header class="sticky top-0 z-40 bg-white bg-opacity-95 backdrop-blur-sm shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+        <a href="index.html" class="flex items-center space-x-2">
+            <img src="assets/logo.jpg" class="w-10 h-10 object-contain">
+            <h1 class="text-3xl font-extrabold text-gray-900 tracking-wider">S.<span class="text-accent">MAROK</span></h1>
+        </a>
+
+        <nav class="hidden md:flex space-x-8 text-sm font-medium">
+            <a href="shop.html" class="hover:text-accent">Shop All</a>
+            <a href="#collection" class="hover:text-accent">Featured Collection</a>
+            <a href="#custom" class="hover:text-accent">Custom Orders</a>
+            <a onclick="openModal()" class="hover:text-accent cursor-pointer">Contact & Booking</a>
+        </nav>
+
+        <button class="md:hidden p-2 rounded-lg hover:bg-gray-100">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+    </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="relative h-[60vh] md:h-[75vh] bg-cover bg-center flex items-center justify-center shadow-lg"
+         style="background-image: url('assets/banner2.png');">
+    <div class="absolute inset-0 bg-black opacity-40"></div>
+
+    <div class="z-10 text-center p-6 max-w-2xl">
+        <p class="text-xl text-white mb-2 tracking-widest uppercase">Elegance in Every Thread</p>
+        <h2 class="text-7xl font-light text-white mb-8">
+            <span class="text-accent font-semibold">S.MAROK</span>
+        </h2>
+
+        <a href="shop.html" class="bg-white text-gray-900 font-semibold py-3 px-8 rounded-full text-lg shadow-lg hover:bg-gray-200">
+            Shop The Collection
+        </a>
+
+        <button onclick="openModal()" class="bg-accent text-white font-semibold py-3 px-8 rounded-full text-lg shadow-lg hover:bg-accent-dark">
+            Book Your Fitting
+        </button>
+    </div>
+</section>
+
+<!-- FEATURED COLLECTION -->
+<section id="collection" class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+
+    <h3 class="text-4xl font-extrabold text-center mb-4">Featured Pieces</h3>
+    <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Sophisticated designs, handcrafted details.</p>
+
+    <!-- Your product grid is unchanged (keeping as-is) -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+        <!-- PRODUCT CARDS -->
+        <!-- I kept every product block exactly same as your file -->
+
+        <!-- Product 1 -->
+        <div class="bg-white rounded-xl product-card overflow-hidden group">
+            <img src="assets/1.png" class="w-full h-64 object-cover">
+            <div class="p-4">
+                <h4 class="text-lg font-medium text-gray-900 group-hover:text-accent">House of S.Marok</h4>
+                <p class="text-sm text-gray-500 mb-3">Year: 2025</p>
+                <button onclick="openModal()" class="w-full py-2 bg-gray-100 rounded-lg hover:bg-accent hover:text-white">
+                    Inquire & Order
+                </button>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="bg-white rounded-xl product-card overflow-hidden group">
+            <img src="assets/2.png" class="w-full h-64 object-cover">
+            <div class="p-4">
+                <h4 class="text-lg font-medium text-gray-900 group-hover:text-accent">House of S.Marok</h4>
+                <p class="text-sm text-gray-500 mb-3">Year: 2025</p>
+                <button onclick="openModal()" class="w-full py-2 bg-gray-100 rounded-lg hover:bg-accent hover:text-white">
+                    Inquire & Order
+                </button>
+            </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="bg-white rounded-xl product-card overflow-hidden group">
+            <img src="assets/3.png" class="w-full h-64 object-cover">
+            <div class="p-4">
+                <h4 class="text-lg font-medium text-gray-900 group-hover:text-accent">House of S.Marok</h4>
+                <p class="text-sm text-gray-500 mb-3">Year: 2025</p>
+                <button onclick="openModal()" class="w-full py-2 bg-gray-100 rounded-lg hover:bg-accent hover:text-white">
+                    Inquire & Order
+                </button>
+            </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="bg-white rounded-xl product-card overflow-hidden group hidden lg:block">
+            <img src="assets/4.png" class="w-full h-64 object-cover">
+            <div class="p-4">
+                <h4 class="text-lg font-medium text-gray-900 group-hover:text-accent">House of S.Marok</h4>
+                <p class="text-sm text-gray-500 mb-3">Year: 2025</p>
+                <button onclick="openModal()" class="w-full py-2 bg-gray-100 rounded-lg hover:bg-accent hover:text-white">
+                    Inquire & Order
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="text-center mt-12">
+        <a href="shop.html" class="inline-flex items-center text-lg font-medium text-gray-900 border-b-2 border-accent pb-1 hover:text-accent">
+            View All Products →
+        </a>
+    </div>
+
+</section>
+
+<!-- CUSTOM ORDER CTA -->
+<section id="custom" class="bg-gray-100 py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center">
+        <h3 class="text-3xl font-bold text-gray-900 mb-4">Ready for Something Uniquely Yours?</h3>
+        <p class="text-lg text-gray-600 mb-8">Define every detail with our bespoke luxury service.</p>
+        <button onclick="openModal()" class="bg-gray-900 text-white py-3 px-8 rounded-full text-lg shadow-lg hover:bg-gray-700">
+            Start Your Custom Order
+        </button>
+    </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-gray-900 text-white pt-14 pb-8">
+    <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-10">
+
+        <div>
+            <h3 class="text-3xl font-extrabold text-accent">S.MAROK</h3>
+            <p class="text-gray-400 mt-3 text-sm">Luxury • Bespoke • Handcrafted</p>
+        </div>
+
+        <div>
+            <h4 class="text-lg font-semibold mb-4">Explore</h4>
+            <ul class="space-y-2 text-gray-300">
+                <li><a href="index.html" class="hover:text-accent">Home</a></li>
+                <li><a href="shop.html" class="hover:text-accent">Shop All</a></li>
+                <li><a href="#custom" class="hover:text-accent">Custom Orders</a></li>
+                <li><a onclick="openModal()" class="hover:text-accent cursor-pointer">Book Appointment</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4 class="text-lg font-semibold mb-4">Contact</h4>
+            <ul class="space-y-3 text-gray-300">
+                <li><a href="https://wa.me/+96176428589" target="_blank" class="hover:text-accent">WhatsApp Chat</a></li>
+                <li><a href="https://www.instagram.com/officialsmarok/" target="_blank" class="hover:text-accent">Instagram DM</a></li>
+                <li><a onclick="openModal()" class="hover:text-accent cursor-pointer">Book Fitting</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="border-t border-gray-700 mt-10 pt-5 text-center text-sm text-gray-400">
+        © 2025 S.MAROK — All Rights Reserved.
+    </div>
+</footer>
+
+<script>
+    lucide.createIcons();
+
+    // Modal
+    const modal = document.getElementById('contact-modal');
+
+    function openModal() {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; 
+    }
+
+    function closeModal(event) {
+        if (event && event.target !== modal) return;
+        modal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+    }
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') closeModal();
+    });
+
+    // PRELOADER
+    window.addEventListener("load", () => {
+        const preloader = document.getElementById("preloader");
+        setTimeout(() => {
+            preloader.classList.add("hide-preloader");
+        }, 200);
+    });
+</script>
+
+</body>
+</html>

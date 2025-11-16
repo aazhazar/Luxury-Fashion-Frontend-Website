@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S.Markok - Full Collection</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styling for aesthetic and font (mirrors index.html) */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F8F8;
+            color: #1A1A1A;
+        }
+        .text-accent {
+            color: #C6A78C;
+        }
+        .bg-accent {
+            background-color: #C6A78C;
+        }
+        .hover\:bg-accent-dark:hover {
+            background-color: #A38C75;
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4D4D4;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F8F8F8;
+        }
+        .product-card {
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Contact Modal (Identical to index.html) -->
+    <div id="contact-modal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-70 flex items-center justify-center p-4" onclick="closeModal(event)">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-md p-8 relative animate-fade-in" onclick="event.stopPropagation()">
+            <!-- Close Button -->
+            <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 transition" onclick="closeModal()">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <h2 class="text-3xl font-semibold mb-4 text-gray-900">Book Your Appointment</h2>
+            <p class="text-gray-600 mb-8">Please choose your preferred contact method to discuss custom orders or book a fitting appointment.</p>
+
+            <div class="space-y-4">
+                <!-- WhatsApp Option with Pre-filled Message -->
+                <a href="https://wa.me/+96176428589?text=Hello%20S.Marok%2C%20I%20would%20like%20to%20inquire%20about%20a%20product%20I%20saw%20on%20your%20Shop%20page." target="_blank" class="flex items-center justify-center w-full py-4 px-6 bg-green-500 text-white font-medium rounded-lg shadow-md hover:bg-green-600 transition-all duration-300">
+                    <i data-lucide="whatsapp" class="w-5 h-5 mr-3 fill-white stroke-white"></i>
+                    WhatsApp Chat (Recommended)
+                </a>
+
+                <!-- Instagram Option -->
+                <a href="https://www.instagram.com/officialsmarok/" target="_blank" class="flex items-center justify-center w-full py-4 px-6 bg-pink-600 text-white font-medium rounded-lg shadow-md hover:bg-pink-700 transition-all duration-300">
+                    <i data-lucide="instagram" class="w-5 h-5 mr-3"></i>
+                    Direct Message on Instagram
+                </a>
+            </div>
+
+            <p class="text-xs text-gray-500 mt-6 text-center">We look forward to creating something unique for you.</p>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-40 bg-white bg-opacity-95 backdrop-blur-sm shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <!-- Shop Logo (Replaced SVG with Image) -->
+            <img src="assets/logo.jpg" alt="S MARKOK Logo" class="w-10 h-10 object-contain">
+
+            <h1 class="text-3xl font-extrabold text-gray-900 tracking-wider cursor-pointer">
+                S.<span class="text-accent">MAROK</span>
+            </h1>
+        </a>
+            <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="index.html" class="text-gray-600 hover:text-accent transition">Home</a>
+                <a href="#products" class="text-accent hover:text-gray-600 transition font-bold">Shop All</a>
+                <a href="#" onclick="openModal()" class="text-gray-600 hover:text-accent transition">Contact & Booking</a>
+            </nav>
+            <button class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition" aria-label="Menu">
+                <i data-lucide="menu" class="w-6 h-6 text-gray-800"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="max-w-7xl mx-auto pt-12 pb-8 px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-5xl font-extrabold text-gray-900 mb-2">The Full S.Markok Collection</h2>
+            <p class="text-xl text-gray-600">Discover our complete range of bespoke and limited-edition apparel.</p>
+        </section>
+
+        <!-- Product Grid -->
+        <section id="products" class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Product Card Template (x12) -->
+                <!-- You can use the same image paths here, just update the number/text -->
+                
+                <!-- Product 1 -->
+                <div class="bg-white rounded-xl product-card overflow-hidden group">
+                    <img src="assets/5.png" alt="Product 5: The Gala Suit" class="w-full h-64 object-cover transition-opacity duration-300 group-hover:opacity-85" onerror="this.onerror=null; this.src='https://placehold.co/400x550/333333/FFFFFF?text=UPLOAD+IMG+5';">
+                    <div class="p-4">
+                        <h4 class="text-lg font-medium text-gray-900 group-hover:text-accent">House of S.Marok</h4>
+                <p class="text-sm text-gray-500 mb-3">Year: 2025</p>
+                        <button onclick="openModal()" class="w-full text-center text-sm py-2 bg-gray-100 text-gray-800 rounded-lg hover:bg-accent hover:text-white transition transform hover:shadow-md">Inquire</button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="bg-white rounded-xl product-card overflow-hidden group">
+                    <img src="assets/6.png" alt="Product 6: Silk Scarf Limited" class="w-full h-64 object-cover transition-opacity duration-300 group-hover:opacity-85" onerror="this.onerror=null; this.src='https://placehold.co/400x550/4B5563/E5E7EB?text=UPLOAD+IMG+6';">
+                    <div class="p-4">
+                        <h4 class="text-lg font-medium text-gray-900 group-hover:text-accent">House of S.Marok</h4>
+                <p class="text-sm text-gray-500 mb-3">Year: 2025</p>
+                        <button onclick="openModal()" class="w-full text-center text-sm py-2 bg-gray-100 text-gray-800 rounded-lg hover:bg-accent hover:text-white transition transform hover:shadow-md">Inquire</button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="bg-white rounded-xl product-card overflow-hidden group">
+                    <img src="assets/7.png" alt="Product 7: Heritage Knit Sweater" class="w-full h-64 object-cover transition-opacity duration-300 group-hover:opacity-85" onerror="this.onerror=null; this.src='https://placehold.co/400x550/9CA3AF/FFFFFF?text=UPLOAD+IMG+7';">
+                    <div class="p-4">
+                        <h4 class="text-lg font-medium text-gray-900 group-hover:text-accent">House of S.Marok</h4>
+                <p class="text-sm text-gray-500 mb-3">Year: 2025</p>
+                        <button onclick="openModal()" class="w-full text-center text-sm py-2 bg-gray-100 text-gray-800 rounded-lg hover:bg-accent hover:text-white transition transform hover:shadow-md">Inquire</button>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="bg-white rounded-xl product-card overflow-hidden group">
+                    <img src="assets/8.png" alt="Product 8: Velvet Smoking Jacket" class="w-full h-64 object-cover transition-opacity duration-300 group-hover:opacity-85" onerror="this.onerror=null; this.src='https://placehold.co/400x550/78350F/FFFFFF?text=UPLOAD+IMG+8';">
+                    <div class="p-4">
+                        <h4 class="text-lg font-medium text-gray-900 group-hover:text-accent">House of S.Marok</h4>
+                <p class="text-sm text-gray-500 mb-3">Year: 2025</p>
+                        <button onclick="openModal()" class="w-full text-center text-sm py-2 bg-gray-100 text-gray-800 rounded-lg hover:bg-accent hover:text-white transition transform hover:shadow-md">Inquire</button>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="bg-white rounded-xl product-card overflow-hidden group">
+                    <img src="assets/9.png" alt="Product 9: High-Waist Trousers" class="w-full h-64 object-cover transition-opacity duration-300 group-hover:opacity-85" onerror="this.onerror=null; this.src='https://placehold.co/400x550/E5E7EB/4B5563?text=UPLOAD+IMG+9';">
+                    <div class="p-4">
+                        <h4 class="text-lg font-medium text-gray-900 group-hover:text-accent">House of S.Marok</h4>
+                <p class="text-sm text-gray-500 mb-3">Year: 2025</p>
+                        <button onclick="openModal()" class="w-full text-center text-sm py-2 bg-gray-100 text-gray-800 rounded-lg hover:bg-accent hover:text-white transition transform hover:shadow-md">Inquire</button>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="bg-white rounded-xl product-card overflow-hidden group">
+                    <img src="assets/10.png" alt="Product 10: The Classic Overcoat" class="w-full h-64 object-cover transition-opacity duration-300 group-hover:opacity-85" onerror="this.onerror=null; this.src='https://placehold.co/400x550/D1D5DB/4B5563?text=UPLOAD+IMG+10';">
+                    <div class="p-4">
+                        <h4 class="text-lg font-medium text-gray-900 group-hover:text-accent">House of S.Marok</h4>
+                <p class="text-sm text-gray-500 mb-3">Year: 2025</p>
+                        <button onclick="openModal()" class="w-full text-center text-sm py-2 bg-gray-100 text-gray-800 rounded-lg hover:bg-accent hover:text-white transition transform hover:shadow-md">Inquire</button>
+                    </div>
+                </div>
+                
+                <!-- Product 7 -->
+                <div class="bg-white rounded-xl product-card overflow-hidden group">
+                    <img src="assets/11.png" alt="Product 11: Pleated Dress" class="w-full h-64 object-cover transition-opacity duration-300 group-hover:opacity-85" onerror="this.onerror=null; this.src='https://placehold.co/400x550/9CA3AF/FFFFFF?text=UPLOAD+IMG+11';">
+                    <div class="p-4">
+                        <h4 class="text-lg font-medium text-gray-900 group-hover:text-accent">House of S.Marok</h4>
+                <p class="text-sm text-gray-500 mb-3">Year: 2025</p>
+                        <button onclick="openModal()" class="w-full text-center text-sm py-2 bg-gray-100 text-gray-800 rounded-lg hover:bg-accent hover:text-white transition transform hover:shadow-md">Inquire</button>
+                    </div>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="bg-white rounded-xl product-card overflow-hidden group">
+                    <img src="assets/12.png" alt="Product 12: Wool Felt Hat" class="w-full h-64 object-cover transition-opacity duration-300 group-hover:opacity-85" onerror="this.onerror=null; this.src='https://placehold.co/400x550/4B5563/E5E7EB?text=UPLOAD+IMG+12';">
+                    <div class="p-4">
+                        <h4 class="text-lg font-medium text-gray-900 group-hover:text-accent">House of S.Marok</h4>
+                <p class="text-sm text-gray-500 mb-3">Year: 2025</p>
+                        <button onclick="openModal()" class="w-full text-center text-sm py-2 bg-gray-100 text-gray-800 rounded-lg hover:bg-accent hover:text-white transition transform hover:shadow-md">Inquire</button>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="bg-accent py-12 mt-12 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center">
+                <h3 class="text-3xl font-bold text-white mb-4">Need a Custom Creation?</h3>
+                <p class="text-lg text-white text-opacity-90 mb-6">
+                    Contact us directly to commission a bespoke piece tailored just for you.
+                </p>
+                <button onclick="openModal()" class="bg-white text-gray-900 font-semibold py-3 px-8 rounded-full text-lg shadow-xl hover:bg-gray-200 transition-all duration-300 transform hover:scale-105">
+                    Start Designing
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <div class="mb-4 md:mb-0">
+                <h5 class="text-2xl font-extrabold text-accent tracking-wider">S.MARKOK</h5>
+                <p class="text-sm text-gray-400 mt-1">&copy; 2025 S.Markok. All rights reserved.</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="https://www.instagram.com/officialsmarok/" target="_blank" aria-label="Instagram" class="text-gray-400 hover:text-accent transition">
+                    <i data-lucide="instagram" class="w-6 h-6"></i>
+                </a>
+                <a href="#" onclick="openModal()" aria-label="Contact via WhatsApp" class="text-gray-400 hover:text-accent transition">
+                    <i data-lucide="message-square" class="w-6 h-6"></i>
+                </a>
+                <a href="index.html" class="text-gray-400 hover:text-accent transition text-sm pt-1">Home</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Get modal element
+        const modal = document.getElementById('contact-modal');
+
+        /**
+         * Opens the contact modal.
+         */
+        function openModal() {
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+        }
+
+        /**
+         * Closes the contact modal.
+         * @param {Event} event - The click event (optional).
+         */
+        function closeModal(event) {
+            // Check if the click was outside the modal content
+            if (event && event.target !== modal) {
+                // If click was not on the dark overlay (modal itself), return
+                return;
+            }
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        // Attach global listener for 'Escape' key to close modal
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
